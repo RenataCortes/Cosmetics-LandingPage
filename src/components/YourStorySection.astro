@@ -1,0 +1,171 @@
+---
+import "@splidejs/splide/css";
+
+const stories = [
+  {
+    name: "Sarah",
+    image: "/src/assets/sarah.png",
+    text: "¡Me encanta COSmetics! Su línea de maquillaje es tan natural y me hace sentir segura. Especialmente amo sus labiales - no resecan mis labios y los colores son hermosos.",
+    rating: 5,
+  },
+  {
+    name: "Emily",
+    image: "src/assets/emily.png",
+    text: "La base se siente ligera y se difumina perfectamente con mi tono de piel. ¡Siempre recibo cumplidos cuando la uso!",
+    rating: 5,
+  },
+  {
+    name: "Jessica",
+    image: "src/assets/olivia.png",
+    text: "Probé su máscara de pestañas y estoy obsesionada. ¡Mis pestañas se ven tan llenas y naturales!",
+    rating: 5,
+  },
+  {
+    name: "Olivia",
+    image: "src/assets/jessica.png",
+    text: "¡La línea de cuidado de la piel ha cambiado mi vida! Mi piel se siente hidratada y radiante todos los días.",
+    rating: 5,
+  },
+  {
+    name: "Ava",
+    image: "src/assets/ava.png",
+    text: "Sus tonos de rubor son simplemente perfectos - sutiles pero tan elegantes.",
+    rating: 5,
+  },
+];
+---
+
+<section
+  id="your-story"
+  class="bg-gradient-to-b from-[#C3A996] to-[#B79C8D] py-24 px-6 md:px-20 relative overflow-hidden"
+>
+  <!-- Decorative elements -->
+  <div
+    class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"
+  >
+  </div>
+
+  <div class="relative max-w-7xl mx-auto">
+    <!-- Header mejorado -->
+    <div class="text-center mb-20">
+      <div class="inline-block mb-6">
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <div class="h-px w-16 bg-white/60"></div>
+          <span
+            class="text-white/90 text-xs uppercase tracking-[0.3em] font-medium"
+            >Testimonios</span
+          >
+          <div class="h-px w-16 bg-white/60"></div>
+        </div>
+        <h2
+          class="font-serif font-bold text-6xl md:text-7xl lg:text-8xl text-white mb-3 italic tracking-tight"
+        >
+          TU HISTORIA
+        </h2>
+        <div class="flex items-center justify-center gap-2 mb-6">
+          <div class="w-1.5 h-1.5 bg-white/80 rounded-full"></div>
+          <div class="h-px w-24 bg-white/60"></div>
+          <div class="w-1.5 h-1.5 bg-white/80 rounded-full"></div>
+        </div>
+      </div>
+      <p
+        class="text-white/95 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light"
+      >
+        Nos encantaría escuchar tu historia y cómo nuestro maquillaje se ha
+        convertido en parte de tu viaje de belleza y empoderamiento
+      </p>
+    </div>
+
+    <!-- Carousel mejorado -->
+    <section
+      id="story-carousel"
+      class="splide pb-16"
+      aria-label="Historias de clientes"
+    >
+      <div class="splide__track">
+        <ul class="splide__list">
+          {
+            stories.map((story) => (
+              <li class="splide__slide">
+                <div class="bg-white/98 backdrop-blur-sm rounded-3xl overflow-hidden transition-all duration-500 h-full flex flex-col min-h-[650px]">
+                  {/* Contenedor de imagen con overlay */}
+                  <div class="relative overflow-hidden h-80 flex-shrink-0">
+                    <img
+                      src={story.image || "/placeholder.svg"}
+                      alt={story.name}
+                      class="w-full h-full object-cover object-center"
+                    />
+                    {/* Quote icon - siempre visible */}
+                    <div class="absolute top-6 right-6 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                      <svg
+                        class="w-7 h-7 text-[#A88A75]"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Contenido */}
+                  <div class="p-8 flex-grow flex flex-col">
+                    {/* Nombre */}
+                    <h3 class="font-serif font-bold text-3xl md:text-4xl text-center text-[#A88A75] mb-2 italic">
+                      {story.name}
+                    </h3>
+
+                    {/* Divider decorativo */}
+                    <div class="flex items-center justify-center gap-2 mb-6">
+                      <div class="h-px w-12 bg-[#A88A75]/30" />
+                      <div class="w-1.5 h-1.5 bg-[#A88A75] rounded-full" />
+                      <div class="h-px w-12 bg-[#A88A75]/30" />
+                    </div>
+
+                    {/* Testimonio */}
+                    <p class="text-[#6B5D52] text-base md:text-lg leading-relaxed text-center flex-grow font-light">
+                      "{story.text}"
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Botón -->
+    <div class="text-center pt-8">
+      <button
+        class="group bg-white text-[#A88A75] hover:text-white px-14 py-4 rounded-full hover:bg-[#816551] shadow-xl transition-colors duration-300 font-semibold text-lg relative overflow-hidden"
+      >
+        <span class="relative z-10">Comparte tu historia</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Splide from "@splidejs/splide";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    new Splide("#story-carousel", {
+      type: "loop",
+      perPage: 3,
+      gap: "2rem",
+      autoplay: true,
+      interval: 4000,
+      pauseOnHover: true,
+      arrows: true,
+      pagination: true,
+      breakpoints: {
+        1024: { perPage: 2, gap: "1.5rem" },
+        640: { perPage: 1, gap: "1rem" },
+      },
+    }).mount();
+  });
+</script>

@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+
+/* ======================
+   Fuentes por defecto
+======================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Mona Sans", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  font-family: "DM Serif Display", serif;
+}
+
+p,
+span,
+div {
+  font-family: "Mona Sans", sans-serif;
+}
+
+/* ======================
+   Clases personalizadas
+======================= */
+.heading {
+  font-family: "DM Serif Display", serif;
+}
+
+.body-text {
+  font-family: "Mona Sans", sans-serif;
+}
+
+/* ======================
+   Estilos globales de Splide
+======================= */
+
+/* Ocultar flechas de navegación completamente */
+.splide__arrow {
+  display: none !important;
+}
+
+/* Estilos de paginación */
+.splide__pagination {
+  bottom: -3rem;
+}
+
+.splide__pagination__page {
+  background: #c9b5a7;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.splide__pagination__page.is-active {
+  background: #a88a75;
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* Asegurar que los slides usen flexbox */
+.splide__slide {
+  display: flex;
+}

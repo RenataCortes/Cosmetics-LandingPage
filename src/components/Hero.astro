@@ -1,0 +1,56 @@
+---
+// Hero section with background image and text
+---
+
+<section
+  id="top"
+  class="relative bg-cover bg-center bg-no-repeat min-h-screen flex items-center overflow-hidden"
+  style="background-image: url('src/assets/heroImage.jpg')"
+>
+  <!-- Overlay sutil para mejorar legibilidad -->
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/20"
+  >
+  </div>
+  <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-8 w-full">
+    <!-- Columna izquierda - Espacio para la imagen de fondo -->
+    <div class="hidden md:block"></div>
+    <!-- Texto a la derecha -->
+    <div class="flex flex-col justify-center text-right space-y-8 md:pl-8">
+      <h1
+        class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#8E7261] font-bold leading-tight space-y-2"
+      >
+        <div
+          class="transform transition-all hover:translate-x-2 duration-300 delay-75"
+        >
+          <span class="italic">CHOOSE</span>
+          <span class="font-normal">your light,</span>
+        </div>
+        <div
+          class="transform transition-all hover:translate-x-2 duration-300 delay-75"
+        >
+          <span class="italic">OWN</span>
+          <span class="font-normal">your voice,</span>
+        </div>
+        <div
+          class="transform transition-all hover:translate-x-2 duration-300 delay-75"
+        >
+          <span class="italic">SHOW</span>
+          <span class="font-normal">your glow.</span>
+        </div>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+  >
+    <a
+      href="#products"
+      class="flex flex-col items-center gap-2 text-[#5F5044] hover:text-[#453931] transition-colors"
+    >
+      <span class="text-md uppercase tracking-widest font-medium">Scroll</span>
+    </a>
+  </div>
+</section>

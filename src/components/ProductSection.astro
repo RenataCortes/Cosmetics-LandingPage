@@ -1,0 +1,199 @@
+---
+import "@splidejs/splide/css";
+
+const products = [
+  {
+    id: 1,
+    name: "Radiant Glow Serum",
+    category: "Cuidado",
+    price: 1250.0,
+    image: "src/assets/glowSerum.png",
+    description: "Suero facial iluminador con vitamina C para una piel radiante",
+  },
+  {
+    id: 2,
+    name: "Velvet Rose Cream",
+    category: "Hidratante",
+    price: 980.0,
+    image: "/src/assets/roseCream.png",
+    description: "Crema nocturna nutritiva con extracto de rosa y ácido hialurónico",
+  },
+  {
+    id: 3,
+    name: "Pure Essence Toner",
+    category: "Cuidado",
+    price: 750.0,
+    image: "src/assets/toner.png",
+    description: "Tónico equilibrante para todo tipo de piel con botánicos naturales",
+  },
+  {
+    id: 4,
+    name: "Golden Hour Oil",
+    category: "Tratamiento",
+    price: 1450.0,
+    image: "src/assets/goldenOil.png",
+    description: "Aceite facial rejuvenecedor con oro de 24k y aceites esenciales",
+  },
+  {
+    id: 5,
+    name: "Silk Touch Cleanser",
+    category: "Limpiador",
+    price: 680.0,
+    image: "src/assets/cleanser.png",
+    description: "Limpiador espumoso suave para piel sensible, pH balanceado",
+  },
+  {
+    id: 6,
+    name: "Bloom Eye Cream",
+    category: "Contorno",
+    price: 890.0,
+    image: "src/assets/EyeCream.png",
+    description: "Crema antiedad para ojos con péptidos y cafeína",
+  },
+];
+---
+
+<section id="products" class="bg-gradient-to-b from-[#FAF7F5] to-[#F6F4F3] py-24 px-6 md:px-20 relative overflow-hidden">
+  <!-- Fondos decorativos -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#A88A75]/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#B79C8D]/5 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-7xl mx-auto">
+    <!-- Encabezado -->
+    <div class="text-center mb-20">
+      <div class="inline-block mb-6">
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <div class="h-px w-16 bg-[#A88A75]"></div>
+          <span class="text-[#A88A75] text-xs uppercase tracking-[0.3em] font-semibold">Descubre</span>
+          <div class="h-px w-16 bg-[#A88A75]"></div>
+        </div>
+      </div>
+      <h2 class="font-serif font-bold text-5xl md:text-6xl lg:text-7xl text-[#B79C8D] mb-6 italic leading-tight tracking-tight">
+        Nuestra Colección Premium
+      </h2>
+      <p class="text-[#A58F80] max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+        Descubre nuestra selección curada de productos de lujo para el cuidado de la piel, elaborados con los mejores ingredientes naturales para realzar tu belleza natural.
+      </p>
+    </div>
+
+    <!-- Carrusel de productos -->
+    <section
+      id="products-carousel"
+      class="splide pb-8"
+      aria-label="Colección de productos"
+    >
+      <div class="splide__track pb-8">
+        <ul class="splide__list">
+          {
+            products.map((product) => (
+              <li class="splide__slide">
+                <div class="bg-white rounded-3xl overflow-hidden transition-shadow duration-300 h-full flex flex-col border-2 border-transparent hover:shadow-xl">
+                  
+                  <!-- Contenedor de imagen -->
+                  <div class="relative aspect-square overflow-hidden bg-gradient-to-br from-[#FAF9F8] to-[#F6F4F3]">
+                    <img
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                    
+                    <!-- Categoría -->
+                    <div class="absolute top-6 left-6 z-30">
+                      <span class="bg-white/95 backdrop-blur-sm text-[#A88A75] px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-md border border-[#A88A75]/10">
+                        {product.category}
+                      </span>
+                    </div>
+
+                    <!-- Botón de favoritos -->
+                    <button
+                      class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/95 hover:bg-[#A88A75] backdrop-blur-sm flex items-center justify-center transition-all duration-200 shadow-lg border border-[#A88A75]/10 group"
+                      aria-label="Agregar a favoritos"
+                    >
+                      <svg
+                        class="w-5 h-5 text-[#A88A75] group-hover:text-white transition-colors duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                        />
+                      </svg>
+                    </button>
+
+                    <!-- Overlay (no bloquea el hover) -->
+                    <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-black/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  <!-- Información del producto -->
+                  <div class="p-8 flex-1 flex flex-col">
+                    <h3 class="font-serif text-2xl md:text-3xl text-[#A88A75] mb-3 leading-tight italic font-bold">
+                      {product.name}
+                    </h3>
+                    <p class="text-[#6B5D52] text-base leading-relaxed flex-1 font-light">
+                      {product.description}
+                    </p>
+
+                    <!-- Precio y botón -->
+                    <div class="flex items-center justify-between mt-6 pt-6 border-t-2 border-[#F6F4F3]">
+                      <div class="flex items-baseline gap-2">
+                        <span class="text-[#8B7568] text-3xl font-bold">
+                          ${product.price.toFixed(2)}
+                        </span>
+                        <span class="text-sm text-[#A88A75] font-medium uppercase tracking-wide">
+                          MXN
+                        </span>
+                      </div>
+
+                      <!-- Botón agregar -->
+                      <button
+                        class="bg-[#A88A75] text-white px-7 py-3 rounded-full hover:bg-[#8F7765] transition-colors duration-300 font-semibold text-sm shadow-md"
+                        aria-label="Agregar al carrito"
+                      >
+                        Agregar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Botón Ver todos -->
+    <div class="text-center pt-8">
+      <button
+        class="bg-[#A88A75] text-white px-14 py-4 rounded-full hover:bg-[#8F7765] transition-colors duration-300 font-semibold text-lg shadow-md"
+      >
+        Ver todos los productos
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Script de Splide -->
+<script>
+  import Splide from "@splidejs/splide";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    new Splide("#products-carousel", {
+      type: "loop",
+      perPage: 3,
+      gap: "2rem",
+      autoplay: true,
+      interval: 4000,
+      pauseOnHover: true,
+      arrows: true,
+      pagination: true,
+      breakpoints: {
+        1024: { perPage: 2, gap: "1.5rem" },
+        640: { perPage: 1, gap: "1rem" },
+      },
+    }).mount();
+  });
+</script>
